@@ -11,24 +11,24 @@ jobs:
     runs-on: ubuntu-latest
     
     steps: 
-      -name: Checkout code
-       uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      -name: Install Node
-       uses: actions/setup-node@v3
-       with:
-          node-version: 18.x
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+            node-version: 18.x
 
-    - name: Installing NPM packages
+      - name: Installing NPM packages
         run: npm ci
 
-    - name: Building project
+      - name: Building project
         run: npm run build
 
-    - name: Running tests
+      - name: Running tests
         run: npm run test
 
-    - name: Uploading production-ready build files
+      - name: Uploading production-ready build files
         uses: actions/upload-artifact@v2
         with:
           name: production-files
